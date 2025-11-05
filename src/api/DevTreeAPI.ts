@@ -1,7 +1,7 @@
 import { isAxiosError } from "axios";
 
 import api from "../config/axios";
-import { TProfileForm, TUser } from "../types";
+import { TUser } from "../types";
 
 export const getUser = async (): Promise<TUser> => {
   try {
@@ -16,7 +16,7 @@ export const getUser = async (): Promise<TUser> => {
 };
 
 export const updateProfile = async (
-  formData: TProfileForm
+  formData: TUser
 ): Promise<string> => {
   try {
     const { data } = await api.patch<string>("/user", formData);
@@ -30,7 +30,7 @@ export const updateProfile = async (
 };
 
 export const uploadImage = async (file: File) => {
-  let formData = new FormData();
+  const formData = new FormData();
   formData.append("file", file);
 
   try {

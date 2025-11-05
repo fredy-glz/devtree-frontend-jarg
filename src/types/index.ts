@@ -3,6 +3,8 @@ export type TUser = {
   name: string;
   email: string;
   description: string;
+  image: string;
+  links: string;
   _id: string;
 };
 
@@ -16,3 +18,12 @@ export type LoginForm = Pick<TUser, "email"> & {
 };
 
 export type TProfileForm = Pick<TUser, "handle" | "description">;
+
+export type TSocialNetwork = {
+  _id: number;
+  name: string;
+  url: string;
+  enabled: boolean;
+};
+
+export type TDevTreeLink = Pick<TSocialNetwork, "name" | "url" | "enabled">;
