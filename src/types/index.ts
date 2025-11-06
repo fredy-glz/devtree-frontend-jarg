@@ -20,7 +20,7 @@ export type LoginForm = Pick<TUser, "email"> & {
 export type TProfileForm = Pick<TUser, "handle" | "description">;
 
 export type TSocialNetwork = {
-  _id: number;
+  id: number;
   name: string;
   url: string;
   enabled: boolean;
