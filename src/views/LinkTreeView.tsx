@@ -98,7 +98,11 @@ const LinkTreeView = () => {
       updatedItems = links.map((link) => {
         if (link.name === socialNetwork) {
           return { ...link, id: 0, enabled: false };
-        } else if (link.id > indexToUpdate) {
+        } else if (
+          link.id > indexToUpdate &&
+          indexToUpdate !== 0 &&
+          link.id === 1
+        ) {
           return { ...link, id: link.id - 1 };
         } else {
           return link;
@@ -126,7 +130,7 @@ const LinkTreeView = () => {
         />
       ))}
       <button
-        onClick={() => mutate(user)}
+        onClick={() => mutate(queryClient.getQueryData(["user"])!)}
         className="bg-cyan-400 p-2 text-lg w-full uppercase text-slate-600 rounded-lg font-bold"
       >
         Guardar cambios
