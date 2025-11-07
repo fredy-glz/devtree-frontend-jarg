@@ -8,6 +8,11 @@ export type TUser = {
   _id: string;
 };
 
+export type TUserHandle = Pick<
+  TUser,
+  "description" | "handle" | "image" | "links" | "name"
+>;
+
 export type TRegisterForm = Pick<TUser, "handle" | "email" | "name"> & {
   password: string;
   password_confirmation: string;
