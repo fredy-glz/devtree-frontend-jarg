@@ -98,17 +98,15 @@ const LinkTreeView = () => {
       updatedItems = links.map((link) => {
         if (link.name === socialNetwork) {
           return { ...link, id: 0, enabled: false };
-        } else if (
-          link.id > indexToUpdate &&
-          indexToUpdate !== 0 &&
-          link.id === 1
-        ) {
+        } else if (link.id > links[indexToUpdate].id) {
           return { ...link, id: link.id - 1 };
         } else {
           return link;
         }
       });
     }
+
+    setDevTreeLinks(updatedLinks);
 
     // Almacena en la base de datos
     queryClient.setQueryData(["user"], (prevData: TUser) => {

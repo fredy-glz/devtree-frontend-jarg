@@ -41,7 +41,6 @@ const ProfileView = () => {
           image: data.image,
         };
       });
-      console.log(data);
     },
     onError: (error) => {
       toast.error(error.message);

@@ -53,3 +53,15 @@ export const getUserByHandle = async (handle: string) => {
     throw new Error("Ha ocurrio un error");
   }
 };
+
+export const searchByHandle = async (handle: string) => {
+  try {
+    const { data } = await api.post<string>("/search", { handle });
+    return data;
+  } catch (error) {
+    if (isAxiosError(error) && error.message) {
+      throw new Error(error.response?.data.error);
+    }
+    throw new Error("Ha ocurrido un error");
+  }
+};
